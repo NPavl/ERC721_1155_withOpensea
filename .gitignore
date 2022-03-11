@@ -1,0 +1,16 @@
+# work folders, files
+node_modules
+.env
+description.txt
+artifacts
+cache
+frontend
+coverage
+coverage.json
+typechain
+yarn-error.log
+images
+metadata
+images.car
+metadata.car
+discription.txt

@@ -1,0 +1,26 @@
+{
+  "name": "erc721_1155",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Pavlov Nikolai",
+  "license": "Unlicense",
+  "dependencies": {
+    "dotenv": "^16.0.0"
+  },
+  "devDependencies": {
+    "@nomiclabs/hardhat-ethers": "^2.0.5",
+    "@nomiclabs/hardhat-etherscan": "^3.0.1",
+    "@nomiclabs/hardhat-waffle": "^2.0.2",
+    "@openzeppelin/contracts": "^4.5.0",
+    "axios": "^0.26.1",
+    "chai": "^4.3.6",
+    "ethereum-waffle": "^3.4.0",
+    "ethers": "^5.6.0",
+    "hardhat": "^2.9.1",
+    "hardhat-contract-sizer": "^2.5.0",
+    "hardhat-gas-reporter": "^1.0.8",
+    "install": "^0.13.0",
+    "node-fetch": "^3.2.2",
+    "solidity-coverage": "^0.7.20"
+  }
+}
