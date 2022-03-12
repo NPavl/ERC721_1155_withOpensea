@@ -1,6 +1,7 @@
 require("@nomiclabs/hardhat-waffle")
 require("@nomiclabs/hardhat-ethers");
 require("@nomiclabs/hardhat-etherscan")
+// const { default: fetch } = require("node-fetch");
 const { getAccount, getContract } = require("./scripts/helpers")
 require('dotenv').config()
 // const fetch = require("node-fetch");
@@ -40,6 +41,7 @@ task("set-base-token-uri", "Sets the base token URI for the deployed smart contr
 
 // > npx hardhat token-uri --token-id 1
 // > npx hardhat token-uri --token-id 2 ...
+// https://docs.opensea.io/docs/4-debugging-your-metadata
 task("token-uri", "Fetches the token metadata for the given token ID")
 .addParam("tokenId", "The tokenID to fetch metadata for")
 .setAction(async function (taskArguments, hre) {

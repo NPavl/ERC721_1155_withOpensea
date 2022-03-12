@@ -1,12 +1,14 @@
 // SPDX-License-Identifier: Unlicense
 pragma solidity ^0.8.4;
 
+// после минта Nтокенов этот контракт не видит opensea https://testnets.opensea.io/get-listed/step-two,  
+// так как этот контракт не соответствует полностью ERC1155, не реализует все его методы. 
 import "@openzeppelin/contracts/utils/math/SafeMath.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
 import "./IERC1155.sol";
 
 contract NFT1155Token is
-    IERC1155,
+    IERC1155, 
     Ownable
 {
     using SafeMath for uint256;
