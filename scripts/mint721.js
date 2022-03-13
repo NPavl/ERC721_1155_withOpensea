@@ -21,7 +21,7 @@ async function mintNFT(ERC721CONTRACT2_ADDRESS) {
    console.log("NFT minted to: ", owner.address)
    console.log(`Transaction Hash: ${response.hash}`)
 }
-
+   
 mintNFT(ERC721CONTRACT2_ADDRESS, META_DATA_URL)
    .then(() => process.exit(0))
    .catch((error) => {
