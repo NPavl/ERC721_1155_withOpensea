@@ -9,6 +9,10 @@ import "@openzeppelin/contracts/token/ERC721/extensions/ERC721Burnable.sol";
 import "@openzeppelin/contracts/utils/Counters.sol";
 import "@openzeppelin/contracts/security/PullPayment.sol";
 
+// вариант рабочий но минус нет функции setTokenURI не могу изменить URI по id 
+// не используй burb без необходимости так как поотом есть проблема с загрузкой 
+// последующих токенов по id (подробне в desription.txt)
+
 contract ERC721NFTBase2 is
     ERC721,
     PullPayment,

@@ -1,15 +1,14 @@
-require("@nomiclabs/hardhat-waffle")
-require("@nomiclabs/hardhat-ethers")
-require("@nomiclabs/hardhat-etherscan")
-const { getAccount, getContract } = require("./scripts/helpers")
-require('dotenv').config()
-// const fetch = require("node-fetch");
-const axios = require('axios').default;
-const {PRIVATE_KEY, ALCHEMY_API_KEY, ETHERSCAN_API_KEY, COINMARKETCAP_API_KEY} = process.env
-// require('solidity-coverage')
-// require("hardhat-gas-reporter")
-// require('hardhat-contract-sizer')
-
+  require("@nomiclabs/hardhat-waffle")
+  require("@nomiclabs/hardhat-ethers")
+  require("@nomiclabs/hardhat-etherscan")
+  const { getAccount, getContract } = require("./scripts/helpers")
+  require('dotenv').config()
+  // const fetch = require("node-fetch");
+  const axios = require('axios').default;
+  const {PRIVATE_KEY, PRIVATE_KEY2, ALCHEMY_API_KEY, ETHERSCAN_API_KEY, COINMARKETCAP_API_KEY} = process.env
+  // require('solidity-coverage')
+  // require("hardhat-gas-reporter")
+  // require('hardhat-contract-sizer')
 
 task("accounts", "Prints the list of accounts", async (taskArgs, hre) => {
   const accounts = await ethers.getSigners()
@@ -31,7 +30,7 @@ task("check-balance", "Prints out the balance of your account").setAction(async 
 task("set-base-token-uri", "Sets the base token URI for the deployed smart contract")
 .addParam("baseUrl", "The base of the tokenURI endpoint to set")
 .setAction(async function (taskArguments, hre) {
-    const contract = await getContract("ERC721NFTBase", hre);
+    const contract = await getContract("ERC1155GameItems", hre);
     const transactionResponse = await contract.setBaseTokenURI(taskArguments.baseUrl, {
         gasLimit: 500_000,
     })
@@ -44,7 +43,7 @@ task("set-base-token-uri", "Sets the base token URI for the deployed smart contr
 task("token-uri", "Fetches the token metadata for the given token ID")
 .addParam("tokenId", "The tokenID to fetch metadata for")
 .setAction(async function (taskArguments, hre) {
-    const contract = await getContract("ERC721NFTBase", hre);
+    const contract = await getContract("ERC1155GameItems", hre);
     const response = await contract.tokenURI(taskArguments.tokenId, {
         gasLimit: 500_000,
     })
@@ -65,7 +64,7 @@ task("mintERC721NFTBase", "Mints from the NFT contract")
     const contract = await getContract("ERC721NFTBase", hre)
     const transactionResponse = await contract.mintTo(taskArguments.address, {
         value: ethers.utils.parseEther('0.001'),
-        gasLimit: 500_000
+        gasLimit: 500_000 
     })
     console.log(`Transaction Hash: ${transactionResponse.hash}`)
 })
@@ -91,7 +90,7 @@ task("mintNFT1155Token", "Mints from the NFT contract")
       // },
       rinkeby: {
         url: `https://eth-rinkeby.alchemyapi.io/v2/${ALCHEMY_API_KEY}`,
-        accounts: [`${PRIVATE_KEY}`], // [`0x${PRIVATE_KEY}`]
+        accounts: [`${PRIVATE_KEY2}`], // [`0x${PRIVATE_KEY}`]
         network_id: 4
       },
       // ropsten: {

@@ -22,6 +22,7 @@
     "install": "^0.13.0",
     "nft.storage": "^6.0.2",
     "node-fetch": "^3.2.2",
+    "opensea": "^1.0.1",
     "solidity-coverage": "^0.7.20"
   }
 }

@@ -1,6 +1,8 @@
 // SPDX-License-Identifier: Unlicense
 pragma solidity ^0.8.4;
 
+// opensea не видит этот контракт. нужен импорт ERC1155 
+
 interface IERC1155 {
     event TransferSingle(
         address indexed _operator,

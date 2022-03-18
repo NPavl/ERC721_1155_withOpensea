@@ -2,29 +2,35 @@
 // const { getAccount } = require("./helpers");
 
 async function main() {
-
+  
   const [deployer] = await ethers.getSigners()
-
+  
   console.log("Deploying contracts with the account:", deployer.address)
-
+  
   console.log("Account balance:", (await deployer.getBalance()).toString())
 
-  const ERC721NFTOne = await ethers.getContractFactory("ERC721NFTBase")
-  const eRC721NFTOne = await ERC721NFTOne.deploy()
-
-  const ERC1155 = await ethers.getContractFactory("NFT1155Token")
-  const eRC1155 = await ERC1155.deploy()
-
-  const ERC721NFTBase2 = await ethers.getContractFactory("ERC721NFTBase2")
-  const eRC721NFTBase2 = await ERC721NFTBase2.deploy()
+  // const ERC721NFTOne = await ethers.getContractFactory("ERC721NFTBase")
+  // const eRC721NFTOne = await ERC721NFTOne.deploy()
+  // -----------
+  // const ERC1155 = await ethers.getContractFactory("NFT1155Token")
+  // const eRC1155 = await ERC1155.deploy()
+  // -----------
+  // const ERC721NFTBase2 = await ethers.getContractFactory("ERC721NFTBase2")
+  // const eRC721NFTBase2 = await ERC721NFTBase2.deploy()
+  //-----------
+  const ERC1155GameItems = await ethers.getContractFactory("ERC1155GameItems")
+  const eRC1155GameItems = await ERC1155GameItems.deploy()
+  //-----------
+  // const ArtCollectible = await ethers.getContractFactory("ArtCollectible")
+  // const artCollectible = await ArtCollectible.deploy()
 
   console.log("Account balance:", (await deployer.getBalance()).toString())
-
-  console.log("Token eRC721NFTOne contract address:", eRC721NFTOne.address)
-  console.log("Token eRC1155 contract address:", eRC1155.address)
-
-  console.log("Token ERC721NFTBase2 contract address:", eRC721NFTBase2.address)
-  console.log(`Token ERC721NFTBase2 contract hash:, ${eRC721NFTBase2.hash}`)
+  // -----------
+  // console.log("Token eRC721NFTOne contract address:", eRC721NFTOne.address)
+  // console.log("Token eRC1155 contract address:", eRC1155.address)
+  // console.log("Token ERC721NFTBase2 contract address:", eRC721NFTBase2.address)
+  // console.log("Token ERC1155Base contract address:", eRC1155GameItems.address)
+  console.log("Token ERC1155Base contract address:", eRC1155GameItems.address)
 }
 
 main()

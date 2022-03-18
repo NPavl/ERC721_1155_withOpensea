@@ -1,31 +1,35 @@
 ## Basic Sample Hardhat Project
 #### Deploy
-Token eRC721NFTOne contract address: 0xF8B470Fd503F9A213fde5E759e04AeB070a8DFaD
-- https://rinkeby.etherscan.io/address/0xF8B470Fd503F9A213fde5E759e04AeB070a8DFaD#code
-- https://testnets.opensea.io/collection/nftsample-dfbxshb992
 
-Token eRC1155 contract address: 0x4eD4c984c432B231f4C564A6A113Ab18Cca0Fa38
-- https://rinkeby.etherscan.io/address/0x4eD4c984c432B231f4C564A6A113Ab18Cca0Fa38#code
-- test Opensea не видит контракт (не соответствует стандарту ERC1155)
+https://testnets.opensea.io/get-listed/  
 
+##### Un f.cking believable collection (first steps):
 Token ERC721NFTBase2 contract address: 0x59DB46a4a8853163B372117B13B8591ddd4403A9
 - https://rinkeby.etherscan.io/address/0x59DB46a4a8853163B372117B13B8591ddd4403A9
 - https://testnets.opensea.io/collection/nftcontract-apwctwsv5p
 
-#### IPFS
+- Token ERC1155 Base "ArtCollectible" contract address: 0x5Ee7C42337559EdC07E8B6768C097dEa6aA81034
+- https://rinkeby.etherscan.io/address/0x5Ee7C42337559EdC07E8B6768C097dEa6aA81034#readContract
+- https://testnets.opensea.io/collection/my-amazing-shit-collection
+  deployer: 0x0B642b7bD0ac3D4cACc92877c1Ed4B433Ecfd86c
 
-BaseTokenURI: 
-"https://bafybeicq4syucu6alfwwgomiprevdcmo6r4jk5bafgisezzl6tt7s46ipy.ipfs.dweb.link/metadata/"
-"https://bafybeib2nwdln56m7fy3vuck7i5ohfrdipb33skvzg3rvdyjbtfvaqd2u4.ipfs.dweb.link/images/"
+- Token ERC1155GameItems contract address: 0xa6f6724f3AEf1A17a134d4C62faF00E2A953fb0B
+- https://rinkeby.etherscan.io/address/0xa6f6724f3AEf1A17a134d4C62faF00E2A953fb0B#code
+- по ошибке удалил с пинаты image. завис основной кошель который owner этого контракта. 
 
-https://testnets.opensea.io/get-listed/  
+Token eRC1155 contract address: 0x4eD4c984c432B231f4C564A6A113Ab18Cca0Fa38
+- https://rinkeby.etherscan.io/address/0x4eD4c984c432B231f4C564A6A113Ab18Cca0Fa38#code
+- Opensea не видит контракт (не соответствует стандарту ERC1155) 
+
+#### Storages
+https://app.pinata.cloud/pinmanager
+https://nft.storage/files/
+https://docs.ipfs.io/
+https://car.ipfs.io/ 
 
 OpenSea Developer Documentation 
 https://docs.opensea.io/docs/metadata-standards
 https://docs.opensea.io/docs/4-debugging-your-metadata
-
-IPFS Documentation | IPFS Docs
-https://docs.ipfs.io/
 
 #### Задание 
 ```
@@ -50,10 +54,11 @@ yarn add --dev hardhat
 yarn add --dev @nomiclabs/hardhat-ethers ethers 
 yarn add --dev @nomiclabs/hardhat-waffle ethereum-waffle chai
 yarn add --save-dev @nomiclabs/hardhat-etherscan
-yarn add --dev node-fetch
+yarn add --dev node-fetch (это говно не работает юзай axios)
 yarn add --dev axios
-yarn add --dev nft.storage
-yarn add install dotenv 
+yarn add --dev nft.storage 
+yarn add --dev opensea
+yarn add --dev dotenv 
 yarn add --dev solidity-coverage
 yarn add --dev hardhat-gas-reporter 
 yarn add --dev hardhat-gas-reporter
@@ -69,21 +74,21 @@ npx hardhat coverage
 npx hardhat run --network localhost scripts/deploy.js 
 npx hardhat run scripts/deploy.js --network rinkeby
 npx hardhat verify <contract_address> --network rinkeby
-npx hardhat verify --constructor-args scripts/arguments.js 0xfd934275FBB3dDF0D023E4623497E7aB4e2B74E7 --network rinkeby
-npx hardhat mintERC721NFTBase --address 0xaF3f0ba2848093D6eEaF4109bfD9A9FbbBA1f470  (owner address) 
+npx hardhat verify --constructor-args scripts/arguments.js <contract_address> --network rinkeby
+npx hardhat mintERC721NFTBase --address <contract_address>  
 yarn run hardhat size-contracts 
 yarn run hardhat size-contracts --no-compile
-npx hardhat run scripts/store-assets1155.js
-npx hardhat run scripts/store-assets721.js
-npx hardhat run scripts/mint1155.js --network rinkeby
-npx hardhat run scripts/mint721.js --network rinkeby
+npx hardhat run scripts/file.js
+npx hardhat run scripts/file.js --network rinkeby
+
 ```
-#### IPFS инструкция:
-https://docs.opensea.io/docs/part-3-adding-metadata-and-payments-to-your-contract
-https://nft.storage/
-https://nft.storage/docs/how-to/mint-erc-1155/
+#### IPFS:
 ```
-npx ipfs-car --pack images --output images.car
+npx ipfs-car --pack images --output images.car  
 npx ipfs-car --pack metadata --output metadata.car
 npx hardhat set-base-token-uri --base-url "https://bafybeicq4syucu6alfwwgomiprevdcmo6r4jk5bafgisezzl6tt7s46ipy.ipfs.dweb.link/metadata/"
+
+baseIpfsUriForever: 
+contract: 'ipfs://QmXWrffcWUw2f3Cx9mFx3zzQu7dzQiqsDfT5DKmjJG5HCN/{id}.json'
+"image" : "ipfs://QmW6CkdzGEKMRe1P3j3JBSxF7mx35naEcnnyzy3WhGXLBz/2.png"
 ```
